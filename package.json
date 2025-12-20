@@ -20,7 +20,7 @@
     "javascript",
     "bootstrap"
   ],
-  "author": "Laura Ortiz Vásquez",
+  "author": "Daphne de jesus",
   "license": "MIT",
   "devDependencies": {
     "serve": "^14.0.0"
