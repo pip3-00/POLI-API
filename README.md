@@ -65,9 +65,9 @@ Sitio web moderno y responsive para institución educativa.
 
 Si tienes algún proyecto en mente o quieres colaborar, no dudes en contactarme:
 
-- **Email:** tu-email@ejemplo.com
-- **GitHub:** [@tu-usuario](https://github.com/tu-usuario)
-- **LinkedIn:** [Tu Perfil](https://linkedin.com/in/tu-perfil)
+- **Email:** daph.2414@gmail.com
+- **GitHub:** [@tu-usuario](https://github.com/pip3-00)
+- **LinkedIn:** [Tu Perfil](https://www.linkedin.com/in/daphne-de-jesus-4521bb370/)
 
 ---
 
