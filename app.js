@@ -145,7 +145,7 @@ function initializeNews() {
             titulo: 'Ceremonia de Graduación 2024: 150 Nuevos Profesionales',
             fecha: '15 de Enero, 2025',
             autor: 'Departamento Académico',
-            imagen: '../assets/images/poli-img-13.jpeg',
+            imagen: './assets/images/poli-img-13.jpeg',
             contenido: 'El Politécnico Ann y Ted Kheel Celebró con gran orgullo la ceremonia de graduación de 150 estudiantes que culminaron exitosamente sus estudios en diversas áreas técnicas y profesionales.'
         },
         {
@@ -154,7 +154,7 @@ function initializeNews() {
             titulo: 'Feria Tecnológica Anual 2025',
             fecha: '12 de Enero, 2025',
             autor: 'Coordinación de Eventos',
-            imagen: '../assets/images/poli-img-2.png',
+            imagen: './assets/images/poli-img-2.png',
             contenido: 'La Feria Tecnológica Anual 2025 del Politécnico Ann y Ted Kheel se realizó con gran éxito, contando con la participación de más de 80 proyectos innovadores.'
         },
         {
@@ -163,7 +163,7 @@ function initializeNews() {
             titulo: 'Campeonato Deportivo Intercursos',
             fecha: '10 de Enero, 2025',
             autor: 'Departamento de Deportes',
-            imagen: '../assets/images/poli-img-12.jpeg',
+            imagen: './assets/images/poli-img-12.jpeg',
             contenido: 'El Campeonato Deportivo Intercursos 2025 reunió a más de 300 estudiantes en competencias de fútbol, baloncesto, voleibol y atletismo.'
         }
     ];
@@ -280,7 +280,7 @@ const noticiasData = [
         titulo: 'Ceremonia de Graduación 2024: 150 Nuevos Profesionales',
         fecha: '15 de Enero, 2025',
         autor: 'Departamento Académico',
-        imagen: '../assets/images/poli-img-13.jpeg',
+        imagen: './assets/images/poli-img-13.jpeg',
         contenido: `
             <p>El Politécnico Ann y Ted Kheel Celebró con gran orgullo la ceremonia de graduación de 150 estudiantes que culminaron exitosamente sus estudios en diversas áreas técnicas y profesionales.</p>
             
@@ -297,7 +297,7 @@ const noticiasData = [
         titulo: 'Feria Tecnológica Anual 2025',
         fecha: '12 de Enero, 2025',
         autor: 'Coordinación de Eventos',
-        imagen: '../assets/images/poli-img-2.png',
+        imagen: './assets/images/poli-img-2.png',
         contenido: `
             <p>La Feria Tecnológica Anual 2025 del Politécnico Ann y Ted Kheel se realizó con gran éxito, contando con la participación de más de 80 proyectos innovadores presentados por estudiantes de todas las carreras.</p>
             
@@ -314,7 +314,7 @@ const noticiasData = [
         titulo: 'Campeonato Deportivo Intercursos',
         fecha: '10 de Enero, 2025',
         autor: 'Departamento de Deportes',
-        imagen: '../assets/images/poli-img-12.jpeg',
+        imagen: './assets/images/poli-img-12.jpeg',
         contenido: `
             <p>El Campeonato Deportivo Intercursos 2025 reunió a más de 300 estudiantes en competencias de fútbol, baloncesto, voleibol y atletismo, demostrando el espíritu deportivo y de superación que caracteriza a nuestra comunidad estudiantil.</p>
             
@@ -331,7 +331,7 @@ const noticiasData = [
         titulo: 'Inauguración del Nuevo Laboratorio de Robótica',
         fecha: '8 de Enero, 2025',
         autor: 'Facultad de Ingeniería',
-        imagen: '../assets/images/poli-img-11.jpeg',
+        imagen: './assets/images/poli-img-11.jpeg',
         contenido: `
             <p>El Politécnico Ann y Ted Kheel inauguró oficialmente su nuevo Laboratorio de Robótica, equipado con tecnología de vanguardia para fortalecer la formación en ingeniería y tecnología.</p>
             
@@ -348,7 +348,7 @@ const noticiasData = [
         titulo: 'Festival Cultural Estudiantil',
         fecha: '5 de Enero, 2025',
         autor: 'Coordinación Cultural',
-        imagen: '../assets/images/poli-img15.jpeg',
+        imagen: './assets/images/poli-img15.jpeg',
         contenido: `
             <p>El Festival Cultural Estudiantil celebró la diversidad de nuestra comunidad con presentaciones artísticas, gastronómicas y musicales que reflejaron las diferentes tradiciones de nuestros estudiantes.</p>
             
@@ -365,7 +365,7 @@ const noticiasData = [
         titulo: 'Nuevos Programas Académicos 2025',
         fecha: '3 de Enero, 2025',
         autor: 'Dirección Académica',
-        imagen: '../assets/images/poli-img-17.jpeg',
+        imagen: './assets/images/poli-img-17.jpeg',
         contenido: `
             <p>El Politécnico Ann y Ted Kheel lanza nuevos programas académicos especializados en tecnología y administración, diseñados para responder a las demandas del mercado laboral actual.</p>
             
@@ -382,7 +382,7 @@ const noticiasData = [
         titulo: 'Conferencia Magistral de Innovación',
         fecha: '1 de Enero, 2025',
         autor: 'Vicerrectoría Académica',
-        imagen: '../assets/images/poli-img-16.jpeg',
+        imagen: './assets/images/poli-img-16.jpeg',
         contenido: `
             <p>Expertos internacionales en educación técnica compartieron las últimas tendencias en innovación educativa durante la Conferencia Magistral de Innovación del Politécnico Ann y Ted Kheel.</p>
             
@@ -399,7 +399,7 @@ const noticiasData = [
         titulo: 'Torneo de Fútbol Intercursos',
         fecha: '28 de Diciembre, 2024',
         autor: 'Departamento de Deportes',
-        imagen: '../assets/images/poli-img-18.jpeg',
+        imagen: './assets/images/poli-img-18.jpeg',
         contenido: `
             <p>El torneo anual de fútbol intercursos reunió a más de 200 estudiantes en una competencia amistosa que promote el espíritu deportivo y la integración entre diferentes cursos.</p>
             
