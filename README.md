@@ -2,6 +2,8 @@
 
 Sitio web institucional moderno y responsive desarrollado como proyecto práctico para aplicar frontend con HTML/CSS/JavaScript y un backend básico con FastAPI, simulando un entorno real de desarrollo full stack.
 
+https://pip3-00.github.io/POLI-API/
+
 ## 🚀 Características
 
 - **Frontend Responsive**: HTML5, CSS3, JavaScript vanilla con Bootstrap 5
