@@ -1547,6 +1547,30 @@ SCROLL LISTA EXCELENCIA
     scrollbar-width: thin;
     scrollbar-color: #0F64CC #f1f5f9;
 }
+ 
+/* boton   para volver */
 
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-cms {
+            background: #4a90d9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-cms:hover {
+            background: #357abd;
+            color: white;
+        }
 
 

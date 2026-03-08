@@ -4,10 +4,10 @@
  */
 
 // ⚙️ CONFIGURACIÓN DE RED - URL del API en producción
-// NOTA: Para GitHub Pages, el API debe estar en un servidor externo
-// Si el backend no está disponible, los features que dependen de él no funcionarán
+// NOTA: Para desarrollo local, usar http://127.0.0.1:8000
+// Para producción, cambiar a la URL del servidor deployed
 
-const API_URL = "https://tu-servidor-api-production.com";
+const API_URL = "http://127.0.0.1:8000";
 
 // Configuración global del aplicativo
 const CONFIG = {

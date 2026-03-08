@@ -1,4 +1,4 @@
-/**
+/*
  * MÓDULO DE LOGIN - Politécnico Ann y Ted Kheel
  * Maneja la autenticación de administradores con el backend FastAPI
  */
@@ -8,10 +8,10 @@ const TOKEN_KEY = 'admin_token';
 const LOGIN_ENDPOINT = '/auth/login';
 const ADMIN_PAGE = 'admin/admin.html';
 
-// Obtener API_URL del objeto global window (definido en config.js)
-const API_URL = window.API_URL;
+// ✅ Variable local segura - evita conflicto con config.jsa
+const apiUrl = window.API_URL;
 
-console.log('📡 API URL:', API_URL);
+console.log('📡 API URL:', apiUrl);
 
 // ===== ELEMENTOS DEL DOM =====
 const loginForm = document.getElementById('loginForm');
@@ -44,7 +44,7 @@ if (loginForm) {
             setLoadingState(true);
             hideError();
             
-            const response = await fetch(`${API_URL}${LOGIN_ENDPOINT}`, {
+            const response = await fetch(`${apiUrl}${LOGIN_ENDPOINT}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -157,7 +157,7 @@ function showAuthError() {
 
 function init() {
     console.log('🚀 Módulo de login inicializado');
-    console.log('📡 API URL:', API_URL);
+    console.log('📡 API URL:', apiUrl);
     
     checkExistingSession();
     showAuthError();
