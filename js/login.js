@@ -9,7 +9,7 @@ const LOGIN_ENDPOINT = '/auth/login';
 const ADMIN_PAGE = 'admin/admin.html';
 
 // Obtener API_URL del objeto global window (definido en config.js)
-const API_URL = window.API_URL || 'https://tu-servidor-api-production.com';
+const API_URL = window.API_URL;
 
 console.log('📡 API URL:', API_URL);
 

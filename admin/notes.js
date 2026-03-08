@@ -4,7 +4,7 @@
  */
 
 // Usar variable global definida en config.js
-const API_URL = window.API_URL || 'https://tu-servidor-api-production.com';
+const API_URL = window.API_URL;
 import { requireAuth, logout } from './services/auth.js';
 import { loadNotes, getNote, createNote, updateNote, deleteNote } from './services/notes.js';
 

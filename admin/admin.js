@@ -4,7 +4,7 @@
  */
 
 // Usar variable global definida en config.js
-const API_URL = window.API_URL || 'https://tu-servidor-api-production.com';
+const API_URL = window.API_URL;
 import { loadContent } from './services/content.js';
 
 console.log('📡 API URL:', API_URL);
