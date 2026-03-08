@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <link rel="stylesheet" href="colors.css">
+
+</head>
+<body>
+    
+    <section class="content-area vista" id="vista-home">
+        <div class="container">
+            <h2>Inicio</h2>
+            <p>Resumen general del sistema.</p>
+        </div>
+    </section>
+
+    <div class="dashboard-container" >
+        <aside class="sidebar">
+            <div class="menu-icon">
+                <span></span><span></span><span></span>
+            </div>
+                <nav class="nav-icons">
+                    <div class="icon-box" data-vista="vista-home">
+                        <img src="home.png" alt="Notas">
+                        <span>Inicio</span>
+                    </div>
+
+                    <div class="icon-box active" data-vista="vista-alumnos">
+                        <img src="listado.png" alt="Alumnos">
+                        <span>Alumnos</span>
+                    </div>
+
+                    <div class="icon-box" data-vista="vista-ranking">
+                        <img src="ranking.png" alt="Reportes">
+                        <span>Reportes</span>
+                    </div>
+                </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Teachers</h1>
+            </header>
+
+            <section class="content-area vista active" id="vista-alumnos">
+                <div class="container">
+                    <h2 class="titulo_listado">Listado de Alumnos</h2>
+
+                    <div class="controls">
+                        <input type="text" id="searchInput" placeholder="Buscar Alumno...">
+
+                        <select id="cursoFilter">
+                            <option value="Todos">Todos los cursos</option>
+                        </select>
+
+                        <select id="seccionFilter">
+                            <option value="Todas">Todas las secciones</option>
+                        </select>
+
+                        <button id="ordenarBtn">Ordenar A→Z</button>
+                        <button class="btn-agregar" type="button" id="abrir-notas">+ Agregar Alumno</button>
+                    </div>
+                    <div class="tabla-scroll">
+                        <table id="alumnosTable">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Curso</th>
+                                    <th>Sección</th>
+                                    <th>Clasificacion</th>
+                                    <th>Promedio</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination"> 
+                    <button id="prevPage">&lt; Anterior</button> 
+                    <span id="pageInfo"></span> 
+                    <button id="nextPage">Siguiente &gt;</button>                 </div>
+                
+            </section>
+
+
+            <section class="content-area vista" id="vista-ranking">
+                <div class="container">
+                    
+                    <div class="ranking-wrapper">
+                        
+                        <div class="ranking-card active">
+                            <div class="ranking-header">
+                                <div class="ranking-titles">
+                                    <h2>🏆 Ranking de la Escuela</h2>
+                                    <p>Promedios más altos de la escuela</p>
+                                </div>
+                                <select id="periodoSelect">
+                                    <option value="final">Final</option>
+                                    <option value="p1">Periodo 1</option>
+                                    <option value="p2">Periodo 2</option>
+                                    <option value="p3">Periodo 3</option>
+                                    <option value="p4">Periodo 4</option>
+                                </select>
+                            </div>
+                            <div class="ranking-list" id="rankingList">
+                                <!-- aquí JS va a pintar todo -->
+                            </div>
+                        </div>
+                        
+                        <div class="top-card">
+                            <div class="top-header">
+                                <div class="top-title">
+                                    <h2>📝Lista De Exelencia</h2>
+                                    <p>Mejores promedios por asignatura y curso</p>
+                                </div>
+                            </div>
+                            <!-- Filtros -->
+                            <div class="top-filters" >
+
+                                <input type="text" id="buscadorExcelencia" placeholder="Buscar estudiante...">
+
+                                <select name="asignatura" id="asignaturas-exelencia">
+                                    <option value="">Selecciones una Asignatura</option>
+                                    <option value="español">Lengua Española</option>
+                                    <option value="ingles">Inglés</option>
+                                    <option value="frances">Francés</option>
+                                    <option value="matematicas">Matemáticas</option>
+                                    <option value="sociales">Ciencias Sociales</option>
+                                    <option value="naturales">Ciencias Naturales</option>
+                                    <option value="arte">Educación Artística</option>
+                                    <option value="fisica">Educación Física</option>
+                                    <option value="formacion">Formación Humana</option>
+                                </select>
+
+                                <select id="grados-exelencia">
+                                    <option value="">Curso</option>
+                                    <option value="2do">2do</option>
+                                    <option value="3ro">3ro</option>
+                                    <option value="4to">4to</option>
+                                    <option value="5to">5to</option>
+                                    <option value="6to">6to</option>
+                                </select>
+
+                                <div class="toggle-grupo">
+                                    <button>A</button>
+                                    <button>B</button>
+                                </div> 
+                            </div>
+                            <div class="top-table"> 
+                                <div class="divider"></div>
+                                <div id="topExcelenciaList"></div> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ventanas de la derecha -->
+                    <div class="side-cards">
+                        <div class="side-card" id="estadistica-img">
+                            <h3>Estadísticas</h3>
+                            <div class="card-content">
+                                <!-- Gráficos o información -->
+                                <img src="estadistica.png" alt="estadistica">
+                            </div>
+                        </div>
+                        
+                        <div class="side-card lista-excelencia">
+                            <h3>Lista de Excelencia</h3>
+                            <div class="card-content" id="lista_exelencia-img">
+                                <!-- Lista filtrable -->
+                                <img id="usuarios_falsos_top" src="lista falsa.png" alt="usuarios">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <dialog id="ventana-notas"> 
+
+        <div class="student-card">
+            <!-- Avatar -->
+            <div class="student-avatar">
+                <img id="incognito_blt" src="incognito.webp" alt="Avatar">
+            </div>
+
+            <!-- Datos del alumno -->
+            <div class="student-info">
+                <div class="field">
+                    <label>Alumno</label>
+                    <input id="nombre_blt" type="text" placeholder="Nombre del alumno">
+                </div>
+                <div class="boletin-header">
+                    <button id="cerrar-notas" class="btn-cerrar">✕</button>
+                    <button id="guardarNotas" class="btn-guardar">
+                        <img src="guardar simbolo.png" alt="guardar">
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="row-mini">
+                        <div class="field">
+                            <label>Curso</label>
+                            <select id="curso_blt">
+                                <option value="" disabled selected>Curso</option>
+                                <option value="2do">2do</option>
+                                <option value="3ro">3ro</option>
+                                <option value="4to">4to</option>
+                                <option value="5to">5to</option>
+                                <option value="6to">6to</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Sección</label>
+                            <select id="seccion_blt">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Estado</label>
+                        <select id="estado_blt">
+                            <option value="activo">Activo</option>
+                            <option value="riesgo">En riesgo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label>ID</label>
+                        <input type="text" placeholder="Se genera al guardar" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label>Prof. Titular</label>
+                        <input type="text" value="Juan Pérez" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="Nota" border="">
+            <thead>
+
+                <tr>
+                    <!--Linea de Arriba-->
+                    <th>Competencias Fundamentales</th>
+                    <th colspan="4" >Competencia Comunicativa</th>
+                    <th colspan="4">Pensamiento Lógico, Creativo y Crítico</th>
+                    <th colspan="4">Ciencias y Tecnologia. Ambiental y de la Salud</th>
+                    <th colspan="4">Ética y Ciudadana</th>
+                    <th colspan="4">Promedio de Competencias Especificas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="file-2">
+                    <th>Areas Curriculares</th>
+                    <th>P1</th><th>P2</th><th>P3</th><th>P4</th>
+                    <th>P1</th><th>P2</th><th>P3</th><th>P4</th>
+                    <th>P1</th><th>P2</th><th>P3</th><th>P4</th>
+                    <th>P1</th><th>P2</th><th>P3</th><th>P4</th>
+                    <th>PC1</th><th>PC2</th><th>PC3</th><th>PC4</th>
+                </tr>
+                <tr data-materia="español">
+                    <th>Lengua Española</th>
+
+                    <!-- COMPETENCIA COMUNICATIVA -->
+                    <td><input type="number" data-materia="español" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo4" data-nota="0"></td>
+
+                    <!-- PENSAMIENTO LÓGICO -->
+                    <td><input type="number" data-materia="español" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo4" data-nota="1"></td>
+
+                    <!-- CIENCIAS Y TECNOLOGIA -->
+                    <td><input type="number" data-materia="español" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo4" data-nota="2"></td>
+
+                    <!-- ÉTICA Y CIUDADANA -->
+                    <td><input type="number" data-materia="español" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="español" data-periodo="periodo4" data-nota="3"></td>
+
+
+                    <!-- PROMEDIOS -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="ingles">
+                    <th>Lenguas Extranjeras(inglés)</th>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="ingles" data-periodo="periodo4" data-nota="3"></td>
+
+                    
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="frances">
+                    <th>Lenguas Extranjeras(Francés)</th>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="frances" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="frances" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="frances" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="frances" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="matematicas">
+                    <th>Matemáticas</th>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo4" data-nota="2"></td>
+                    
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="matematicas" data-periodo="periodo4" data-nota="3"></td>
+                    
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="sociales">
+                    <th>Ciencias Sociales</th>
+                    <!-- Competencia Comunicativa -->
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo4" data-nota="2"></td>
+                    
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="sociales" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="naturales">
+                    <th>Ciencias de la Naturaleza</th>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="naturales" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="arte">
+                    <th>Educacion Artistica</th>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="arte" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="arte" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="arte" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="arte" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="fisica">
+                    <th>Educación Fisica</th>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="fisica" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+                <tr data-materia="formacion">
+                    <th>Formación Integral Humana y Religiosa</th>
+
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo1" data-nota="0"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo2" data-nota="0"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo3" data-nota="0"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo4" data-nota="0"></td>
+
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo1" data-nota="1"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo2" data-nota="1"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo3" data-nota="1"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo4" data-nota="1"></td>
+
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo1" data-nota="2"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo2" data-nota="2"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo3" data-nota="2"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo4" data-nota="2"></td>
+
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo1" data-nota="3"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo2" data-nota="3"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo3" data-nota="3"></td>
+                    <td><input type="number" data-materia="formacion" data-periodo="periodo4" data-nota="3"></td>
+
+                    <!-- Promedios -->
+                    <td data-promedio="periodo1"></td>
+                    <td data-promedio="periodo2"></td>
+                    <td data-promedio="periodo3"></td>
+                    <td data-promedio="periodo4"></td>
+                </tr>
+            </tbody>
+        </table>
+    </dialog>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
